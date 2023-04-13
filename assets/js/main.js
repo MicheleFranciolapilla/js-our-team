@@ -42,6 +42,7 @@ const team = [
     }
   }
 
+  // Funzione Milestone 1
   function console_output()
   {
     console.log("Our team:");
@@ -59,6 +60,7 @@ const team = [
     console.log("********************");
   }
 
+  // Funzione Milestone 2
   function dom_output()
   {
     let main = document.querySelector("main");
@@ -77,6 +79,7 @@ const team = [
     }
   }
 
+  // Funzione Bonus 1
   function dom_img_output()
   {
     let main = document.querySelector("main");
@@ -98,7 +101,34 @@ const team = [
     }
   }
 
+  // Funzione Bonus 2
+  function bootstrap_card_output()
+  {
+    let main = document.querySelector("main");
+    main.className = "col-9 mx-auto";
+    main.innerHTML = '<h1 class="text-center text-black">This is our team...</h1>';
+    main.innerHTML += '<p class="text-center text-black-50 mx-5 px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum unde necessitatibus quidem eum perferendis vitae? Incidunt asperiores eos ipsam iure corporis illo illum aperiam voluptas. Maiores voluptatem magni obcaecati neque.</p>';
+    let cards_row = document.createElement("div");
+    cards_row.className = "row flex-wrap justify-content-evenly";
+    main.append(cards_row);
+    for (let i = 0; i < team.length; i++)
+    {
+      let member_card = document.createElement("div");
+      member_card.classList.add("card", "my-2");
+      member_card.setAttribute("style",`flex-basis: calc(95% / 3); padding-top: 20px;`);
+      member_card.innerHTML = `
+      <img src="${team[i]['image']}" class="card-img-top" alt="Foto nr ${i + 1}">
+      <div class="card-body text-center">
+        <h3 class="card-title">${team[i]['name']}</h3>
+        <h5 class="card-text">${team[i]['role']}</h5>
+        <a href="#" class="btn btn-primary">Vai al suo profilo linkedin</a>
+      </div>`;
+      cards_row.append(member_card);
+    }
+  }
+
   image_path();
   console_output();
   // dom_output();
-  dom_img_output();
+  // dom_img_output();
+  bootstrap_card_output();
