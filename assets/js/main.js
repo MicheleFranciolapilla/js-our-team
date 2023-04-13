@@ -57,5 +57,25 @@ const team = [
     console.log("********************");
   }
 
+  function dom_output()
+  {
+    const colors = ["red","green","black","gray","yellow","orange"]; 
+    let main = document.querySelector("main");
+    main.innerHTML = '<h2 style="color: blue;">This is our team...</h2>';
+    for (let i = 0; i < team.length; i++)
+    {
+      let member = document.createElement("ul");
+      member.setAttribute("style",`color:${colors[i]}`);
+      for (key in team[i])
+      {
+        let member_data = document.createElement("li");
+        member_data.innerText = `${key}: ${team[i][key]}`;
+        member.append(member_data);
+      }
+      main.append(member);
+    }
+  }
+
   image_path();
   console_output();
+  dom_output();
