@@ -31,3 +31,31 @@ const team = [
       image: 'barbara-ramos-graphic-designer.jpg',
     },
   ];
+
+  function image_path()
+  {
+    for (let i = 0; i < team.length; i++)
+    {
+      team[i].image = img_folder.concat(team[i].image);
+    }
+  }
+
+  function console_output()
+  {
+    console.log("Our team:");
+    console.log("********************");
+    console.log("--------------------");
+    for (let i = 0; i < team.length; i++)
+    {
+        console.log("Nr ",i + 1);
+        for (key in team[i])
+        {
+            console.log(key,": ",team[i][key]);
+        } 
+        console.log("--------------------");
+    }
+    console.log("********************");
+  }
+
+  image_path();
+  console_output();
